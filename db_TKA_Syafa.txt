@@ -1,0 +1,364 @@
+andityaspranowo@MacBook-Air-andityas ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 22
+Server version: 9.6.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database db_tka2026;
+Query OK, 1 row affected (0.003 sec)
+
+mysql> use db_tka2026;
+Database changed
+mysql> CREATE TABLE nilai_tka2026 (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     nis INT NOT NULL,
+    ->     nama VARCHAR(50) NOT NULL,
+    ->     jurusan VARCHAR(20) NOT NULL,
+    ->     kelas VARCHAR(5) NOT NULL,
+    ->     b_indo INT NOT NULL,
+    ->     mtk INT NOT NULL,
+    ->     b_inggris INT NOT NULL,
+    ->     pilihan1 INT NOT NULL,
+    ->     pilihan2 INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.017 sec)
+
+mysql> INSERT INTO nilai_tka2026
+    -> (nis, nama, jurusan, kelas, b_indo, mtk, b_inggris, pilihan1, pilihan2)
+    -> VALUES
+    -> (25001, 'Andi', 'rpl', 'XII', 78, 85, 80, 82, 79),
+    -> (25002, 'Budi', 'tkj', 'XII', 70, 75, 72, 74, 71),
+    -> (25003, 'Joko', 'sija', 'XII', 88, 90, 85, 89, 87),
+    -> (25004, 'Dewi', 'dkv', 'XII', 92, 78, 88, 90, 91),
+    -> (25005, 'Eko', 'tkp', 'XII', 65, 70, 68, 67, 69),
+    -> (25006, 'Fajar', 'dpib', 'XII', 73, 76, 74, 75, 72),
+    -> (25007, 'Gina', 'tp', 'XII', 60, 82, 81, 83, 84),
+    -> (25008, 'Nia', 'tflm', 'XII', 69, 72, 70, 71, 73),
+    -> (25009, 'Indah', 'toi', 'XII', 85, 88, 86, 87, 89),
+    -> (24001, 'Citra', 'tkr', 'XIII', 74, 78, 75, 77, 76),
+    -> (24002, 'Kiki', 'rpl', 'XIII', 90, 92, 91, 93, 94),
+    -> (24003, 'Lina', 'tkj', 'XIII', 82, 80, 83, 90, 78),
+    -> (24004, 'Mira', 'sija', 'XIII', 76, 79, 78, 77, 80),
+    -> (24005, 'Hadi', 'dkv', 'XIII', 88, 85, 87, 86, 89),
+    -> (24006, 'Oki', 'tkp', 'XIII', 68, 50, 67, 66, 69),
+    -> (24007, 'Putri', 'dpib', 'XIII', 79, 81, 80, 82, 83),
+    -> (24008, 'Raka', 'tp', 'XIII', 84, 86, 85, 87, 88),
+    -> (24009, 'Sinta', 'tflm', 'XIII', 71, 73, 72, 74, 75),
+    -> (24010, 'Toni', 'toi', 'XIII', 77, 79, 78, 80, 81),
+    -> (24011, 'Zaky', 'tkr', 'XIII', 69, 70, 68, 71, 72),
+    -> (24012, 'Vina', 'rpl', 'XIII', 91, 93, 92, 94, 95),
+    -> (25010, 'Wawan', 'tkj', 'XII', 75, 77, 76, 78, 79),
+    -> (25011, 'Yani', 'sija', 'XII', 83, 85, 50, 86, 87),
+    -> (25012, 'Umar', 'dkv', 'XII', 89, 87, 88, 90, 91),
+    -> (24013, 'Rizky', 'tp', 'XIII', 80, 82, 81, 83, 84);
+Query OK, 25 rows affected (0.006 sec)
+Records: 25  Duplicates: 0  Warnings: 0
+
+mysql> update nilai_tka2026 set nama = 'Yuni' where id =23;
+Query OK, 1 row affected (0.003 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *
+    -> From nilai_tka2026;
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+| id | nis   | nama  | jurusan | kelas | b_indo | mtk | b_inggris | pilihan1 | pilihan2 |
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+|  1 | 25001 | Andi  | rpl     | XII   |     78 |  85 |        80 |       82 |       79 |
+|  2 | 25002 | Budi  | tkj     | XII   |     70 |  75 |        72 |       74 |       71 |
+|  3 | 25003 | Joko  | sija    | XII   |     88 |  90 |        85 |       89 |       87 |
+|  4 | 25004 | Dewi  | dkv     | XII   |     92 |  78 |        88 |       90 |       91 |
+|  5 | 25005 | Eko   | tkp     | XII   |     65 |  70 |        68 |       67 |       69 |
+|  6 | 25006 | Fajar | dpib    | XII   |     73 |  76 |        74 |       75 |       72 |
+|  7 | 25007 | Gina  | tp      | XII   |     60 |  82 |        81 |       83 |       84 |
+|  8 | 25008 | Nia   | tflm    | XII   |     69 |  72 |        70 |       71 |       73 |
+|  9 | 25009 | Indah | toi     | XII   |     85 |  88 |        86 |       87 |       89 |
+| 10 | 24001 | Citra | tkr     | XIII  |     74 |  78 |        75 |       77 |       76 |
+| 11 | 24002 | Kiki  | rpl     | XIII  |     90 |  92 |        91 |       93 |       94 |
+| 12 | 24003 | Lina  | tkj     | XIII  |     82 |  80 |        83 |       90 |       78 |
+| 13 | 24004 | Mira  | sija    | XIII  |     76 |  79 |        78 |       77 |       80 |
+| 14 | 24005 | Hadi  | dkv     | XIII  |     88 |  85 |        87 |       86 |       89 |
+| 15 | 24006 | Oki   | tkp     | XIII  |     68 |  50 |        67 |       66 |       69 |
+| 16 | 24007 | Putri | dpib    | XIII  |     79 |  81 |        80 |       82 |       83 |
+| 17 | 24008 | Raka  | tp      | XIII  |     84 |  86 |        85 |       87 |       88 |
+| 18 | 24009 | Sinta | tflm    | XIII  |     71 |  73 |        72 |       74 |       75 |
+| 19 | 24010 | Toni  | toi     | XIII  |     77 |  79 |        78 |       80 |       81 |
+| 20 | 24011 | Zaky  | tkr     | XIII  |     69 |  70 |        68 |       71 |       72 |
+| 21 | 24012 | Vina  | rpl     | XIII  |     91 |  93 |        92 |       94 |       95 |
+| 22 | 25010 | Wawan | tkj     | XII   |     75 |  77 |        76 |       78 |       79 |
+| 23 | 25011 | Yuni  | sija    | XII   |     83 |  85 |        50 |       86 |       87 |
+| 24 | 25012 | Umar  | dkv     | XII   |     89 |  87 |        88 |       90 |       91 |
+| 25 | 24013 | Rizky | tp      | XIII  |     80 |  82 |        81 |       83 |       84 |
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+25 rows in set (0.001 sec)
+
+mysql> select min(mtk) as matematikaterkecil from nilai_tka2026;
++--------------------+
+| matematikaterkecil |
++--------------------+
+|                 50 |
++--------------------+
+1 row in set (0.004 sec)
+
+
+mysql> SELECT nama, jurusan, kelas, b_inggris
+    -> FROM nilai_tka2026
+    -> WHERE b_inggris = (SELECT MAX(b_inggris) FROM nilai_tka2026);
++------+---------+-------+-----------+
+| nama | jurusan | kelas | b_inggris |
++------+---------+-------+-----------+
+| Vina | rpl     | XIII  |        92 |
++------+---------+-------+-----------+
+1 row in set (0.003 sec)
+
+mysql> SELECT COUNT(*) AS total_data
+    -> FROM nilai_tka2026;
++------------+
+| total_data |
++------------+
+|         25 |
++------------+
+1 row in set (0.005 sec)
+
+mysql> select distinct jurusan from nilai_tka2026;
++---------+
+| jurusan |
++---------+
+| rpl     |
+| tkj     |
+| sija    |
+| dkv     |
+| tkp     |
+| dpib    |
+| tp      |
+| tflm    |
+| toi     |
+| tkr     |
++---------+
+10 rows in set (0.003 sec)
+
+mysql> SELECT SUM(pilihan1) AS total_pilihan1
+    -> FROM nilai_tka2026;;
++----------------+
+| total_pilihan1 |
++----------------+
+|           2032 |
++----------------+
+1 row in set (0.001 sec)
+
+mysql> SELECT 
+    -> AVG(b_indo) AS avg_indo,
+    -> AVG(mtk) AS avg_mtk,
+    -> AVG(b_inggris) AS avg_inggris,
+    -> AVG(pilihan1) AS avg_pilihan1,
+    -> AVG(pilihan2) AS avg_pilihan2
+    -> FROM nilai_tka2026;
++----------+---------+-------------+--------------+--------------+
+| avg_indo | avg_mtk | avg_inggris | avg_pilihan1 | avg_pilihan2 |
++----------+---------+-------------+--------------+--------------+
+|    78.24 |   79.72 |        78.2 |        81.28 |        81.44 |
++----------+---------+-------------+--------------+--------------+
+1 row in set (0.002 sec)
+
+mysql> SELECT *
+    -> FROM nilai_tka2026
+    -> WHERE kelas = 'XII' AND jurusan = 'rpl';
++----+-------+------+---------+-------+--------+-----+-----------+----------+----------+
+| id | nis   | nama | jurusan | kelas | b_indo | mtk | b_inggris | pilihan1 | pilihan2 |
++----+-------+------+---------+-------+--------+-----+-----------+----------+----------+
+|  1 | 25001 | Andi | rpl     | XII   |     78 |  85 |        80 |       82 |       79 |
++----+-------+------+---------+-------+--------+-----+-----------+----------+----------+
+1 row in set (0.002 sec)
+
+mysql> select nama, kelas, jurusan, b_indo
+    -> from nilai_tka2026
+    -> where jurusan = 'tflm' OR b_indo >=80;
++-------+-------+---------+--------+
+| nama  | kelas | jurusan | b_indo |
++-------+-------+---------+--------+
+| Joko  | XII   | sija    |     88 |
+| Dewi  | XII   | dkv     |     92 |
+| Nia   | XII   | tflm    |     69 |
+| Indah | XII   | toi     |     85 |
+| Kiki  | XIII  | rpl     |     90 |
+| Lina  | XIII  | tkj     |     82 |
+| Hadi  | XIII  | dkv     |     88 |
+| Raka  | XIII  | tp      |     84 |
+| Sinta | XIII  | tflm    |     71 |
+| Vina  | XIII  | rpl     |     91 |
+| Yuni  | XII   | sija    |     83 |
+| Umar  | XII   | dkv     |     89 |
+| Rizky | XIII  | tp      |     80 |
++-------+-------+---------+--------+
+13 rows in set (0.001 sec)
+
+mysql> select *
+    -> from nilai_tka2026
+    -> where kelas = 'XIII';
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+| id | nis   | nama  | jurusan | kelas | b_indo | mtk | b_inggris | pilihan1 | pilihan2 |
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+| 10 | 24001 | Citra | tkr     | XIII  |     74 |  78 |        75 |       77 |       76 |
+| 11 | 24002 | Kiki  | rpl     | XIII  |     90 |  92 |        91 |       93 |       94 |
+| 12 | 24003 | Lina  | tkj     | XIII  |     82 |  80 |        83 |       90 |       78 |
+| 13 | 24004 | Mira  | sija    | XIII  |     76 |  79 |        78 |       77 |       80 |
+| 14 | 24005 | Hadi  | dkv     | XIII  |     88 |  85 |        87 |       86 |       89 |
+| 15 | 24006 | Oki   | tkp     | XIII  |     68 |  50 |        67 |       66 |       69 |
+| 16 | 24007 | Putri | dpib    | XIII  |     79 |  81 |        80 |       82 |       83 |
+| 17 | 24008 | Raka  | tp      | XIII  |     84 |  86 |        85 |       87 |       88 |
+| 18 | 24009 | Sinta | tflm    | XIII  |     71 |  73 |        72 |       74 |       75 |
+| 19 | 24010 | Toni  | toi     | XIII  |     77 |  79 |        78 |       80 |       81 |
+| 20 | 24011 | Zaky  | tkr     | XIII  |     69 |  70 |        68 |       71 |       72 |
+| 21 | 24012 | Vina  | rpl     | XIII  |     91 |  93 |        92 |       94 |       95 |
+| 25 | 24013 | Rizky | tp      | XIII  |     80 |  82 |        81 |       83 |       84 |
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+13 rows in set (0.001 sec)
+
+mysql> select * from nilai_tka2026 where nama LIKE '%i';
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+| id | nis   | nama  | jurusan | kelas | b_indo | mtk | b_inggris | pilihan1 | pilihan2 |
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+|  1 | 25001 | Andi  | rpl     | XII   |     78 |  85 |        80 |       82 |       79 |
+|  2 | 25002 | Budi  | tkj     | XII   |     70 |  75 |        72 |       74 |       71 |
+|  4 | 25004 | Dewi  | dkv     | XII   |     92 |  78 |        88 |       90 |       91 |
+| 11 | 24002 | Kiki  | rpl     | XIII  |     90 |  92 |        91 |       93 |       94 |
+| 14 | 24005 | Hadi  | dkv     | XIII  |     88 |  85 |        87 |       86 |       89 |
+| 15 | 24006 | Oki   | tkp     | XIII  |     68 |  50 |        67 |       66 |       69 |
+| 16 | 24007 | Putri | dpib    | XIII  |     79 |  81 |        80 |       82 |       83 |
+| 19 | 24010 | Toni  | toi     | XIII  |     77 |  79 |        78 |       80 |       81 |
+| 23 | 25011 | Yuni  | sija    | XII   |     83 |  85 |        50 |       86 |       87 |
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+9 rows in set (0.001 sec)
+
+mysql> select * from nilai_tka2026 ORDER BY id ASC LIMIT 5;
++----+-------+------+---------+-------+--------+-----+-----------+----------+----------+
+| id | nis   | nama | jurusan | kelas | b_indo | mtk | b_inggris | pilihan1 | pilihan2 |
++----+-------+------+---------+-------+--------+-----+-----------+----------+----------+
+|  1 | 25001 | Andi | rpl     | XII   |     78 |  85 |        80 |       82 |       79 |
+|  2 | 25002 | Budi | tkj     | XII   |     70 |  75 |        72 |       74 |       71 |
+|  3 | 25003 | Joko | sija    | XII   |     88 |  90 |        85 |       89 |       87 |
+|  4 | 25004 | Dewi | dkv     | XII   |     92 |  78 |        88 |       90 |       91 |
+|  5 | 25005 | Eko  | tkp     | XII   |     65 |  70 |        68 |       67 |       69 |
++----+-------+------+---------+-------+--------+-----+-----------+----------+----------+
+5 rows in set (0.002 sec)
+
+mysql> select * from nilai_tka2026 ORDER BY id DESC LIMIT 5;
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+| id | nis   | nama  | jurusan | kelas | b_indo | mtk | b_inggris | pilihan1 | pilihan2 |
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+| 25 | 24013 | Rizky | tp      | XIII  |     80 |  82 |        81 |       83 |       84 |
+| 24 | 25012 | Umar  | dkv     | XII   |     89 |  87 |        88 |       90 |       91 |
+| 23 | 25011 | Yuni  | sija    | XII   |     83 |  85 |        50 |       86 |       87 |
+| 22 | 25010 | Wawan | tkj     | XII   |     75 |  77 |        76 |       78 |       79 |
+| 21 | 24012 | Vina  | rpl     | XIII  |     91 |  93 |        92 |       94 |       95 |
++----+-------+-------+---------+-------+--------+-----+-----------+----------+----------+
+5 rows in set (0.001 sec)
+
+mysql> select nama, mtk
+    -> from nilai_tka2026
+    -> ORDER BY mtk DESC
+    -> limit 5;
++-------+-----+
+| nama  | mtk |
++-------+-----+
+| Vina  |  93 |
+| Kiki  |  92 |
+| Joko  |  90 |
+| Indah |  88 |
+| Umar  |  87 |
++-------+-----+
+5 rows in set (0.001 sec)
+
+mysql> SELECT 
+    -> nama,
+    -> (b_indo + mtk + b_inggris + pilihan1 + pilihan2) / 5 AS rata_rata
+    -> FROM nilai_tka2026;
++-------+-----------+
+| nama  | rata_rata |
++-------+-----------+
+| Andi  |      80.8 |
+| Budi  |      72.4 |
+| Joko  |      87.8 |
+| Dewi  |      87.8 |
+| Eko   |      67.8 |
+| Fajar |        74 |
+| Gina  |        78 |
+| Nia   |        71 |
+| Indah |        87 |
+| Citra |        76 |
+| Kiki  |        92 |
+| Lina  |      82.6 |
+| Mira  |        78 |
+| Hadi  |        87 |
+| Oki   |        64 |
+| Putri |        81 |
+| Raka  |        86 |
+| Sinta |        73 |
+| Toni  |        79 |
+| Zaky  |        70 |
+| Vina  |        93 |
+| Wawan |        77 |
+| Yuni  |      78.2 |
+| Umar  |        89 |
+| Rizky |        82 |
++-------+-----------+
+25 rows in set (0.002 sec)
+
+mysql> SELECT COUNT(*) AS jumlah_kelas_12
+    -> FROM nilai_tka2026
+    -> WHERE kelas = 'XII';
++-----------------+
+| jumlah_kelas_12 |
++-----------------+
+|              12 |
++-----------------+
+1 row in set (0.001 sec)
+
+mysql> SELECT COUNT(*) AS jumlah_kelas_13
+    -> FROM nilai_tka2026
+    -> WHERE kelas = 'XIII';
++-----------------+
+| jumlah_kelas_13 |
++-----------------+
+|              13 |
++-----------------+
+1 row in set (0.001 sec)
+
+mysql> SELECT  nama, jurusan, kelas, (b_indo + mtk + b_inggris + pilihan1 + pilihan2) AS total_nilai FROM nilai_tka2026;
++-------+---------+-------+-------------+
+| nama  | jurusan | kelas | total_nilai |
++-------+---------+-------+-------------+
+| Andi  | rpl     | XII   |         404 |
+| Budi  | tkj     | XII   |         362 |
+| Joko  | sija    | XII   |         439 |
+| Dewi  | dkv     | XII   |         439 |
+| Eko   | tkp     | XII   |         339 |
+| Fajar | dpib    | XII   |         370 |
+| Gina  | tp      | XII   |         390 |
+| Nia   | tflm    | XII   |         355 |
+| Indah | toi     | XII   |         435 |
+| Citra | tkr     | XIII  |         380 |
+| Kiki  | rpl     | XIII  |         460 |
+| Lina  | tkj     | XIII  |         413 |
+| Mira  | sija    | XIII  |         390 |
+| Hadi  | dkv     | XIII  |         435 |
+| Oki   | tkp     | XIII  |         320 |
+| Putri | dpib    | XIII  |         405 |
+| Raka  | tp      | XIII  |         430 |
+| Sinta | tflm    | XIII  |         365 |
+| Toni  | toi     | XIII  |         395 |
+| Zaky  | tkr     | XIII  |         350 |
+| Vina  | rpl     | XIII  |         465 |
+| Wawan | tkj     | XII   |         385 |
+| Yuni  | sija    | XII   |         391 |
+| Umar  | dkv     | XII   |         445 |
+| Rizky | tp      | XIII  |         410 |
++-------+---------+-------+-------------+
+25 rows in set (0.001 sec)
